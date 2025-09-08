@@ -24,3 +24,4 @@ services:
         value: https://superbloom-frontend.onrender.com
       - key: CSRF_TRUSTED_ORIGINS
         value: https://superbloom-frontend.onrender.com
+        

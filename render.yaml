@@ -3,7 +3,6 @@ services:
     name: superbloom-backend
     env: python
     rootDir: backend
-    plan: free
     buildCommand: |
       pip install -r requirements.txt
       python manage.py collectstatic --noinput

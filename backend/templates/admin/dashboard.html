@@ -1,0 +1,54 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block title %}Workshops Dashboard{% endblock %}
+
+{% block content %}
+<div class="container" style="padding: 16px;">
+  <h1>Workshops Dashboard</h1>
+  <div class="cards" style="display:flex; gap:16px; flex-wrap:wrap; margin:16px 0;">
+    <div class="card" style="padding:12px; border:1px solid #444; border-radius:8px; min-width:200px;">
+      <div>Total Workshops</div>
+      <div style="font-size:24px; font-weight:bold;">{{ stats.workshops_total }}</div>
+    </div>
+    <div class="card" style="padding:12px; border:1px solid #444; border-radius:8px; min-width:200px;">
+      <div>Total Registrations</div>
+      <div style="font-size:24px; font-weight:bold;">{{ stats.registrations_total }}</div>
+    </div>
+    <div class="card" style="padding:12px; border:1px solid #444; border-radius:8px; min-width:200px;">
+      <div>Verified</div>
+      <div style="font-size:24px; font-weight:bold;">{{ stats.registrations_verified }}</div>
+    </div>
+    <div class="card" style="padding:12px; border:1px solid #444; border-radius:8px; min-width:200px;">
+      <div>Pending</div>
+      <div style="font-size:24px; font-weight:bold;">{{ stats.registrations_pending }}</div>
+    </div>
+  </div>
+
+  <h2>Recent Workshops</h2>
+  <table class="adminlist" style="width:100%; border-collapse:collapse;">
+    <thead>
+      <tr>
+        <th style="text-align:left; border-bottom:1px solid #444; padding:8px;">Title</th>
+        <th style="text-align:left; border-bottom:1px solid #444; padding:8px;">Date</th>
+        <th style="text-align:left; border-bottom:1px solid #444; padding:8px;">Status</th>
+        <th style="text-align:left; border-bottom:1px solid #444; padding:8px;">Registrations</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for w in by_workshop %}
+      <tr>
+        <td style="padding:8px;"><a href="{% url 'admin:api_workshop_change' w.id %}">{{ w.title }}</a></td>
+        <td style="padding:8px;">{{ w.date }}</td>
+        <td style="padding:8px;">{{ w.status }}</td>
+        <td style="padding:8px;">{{ w.reg_count }}</td>
+      </tr>
+      {% empty %}
+      <tr><td colspan="4" style="padding:8px;">No workshops.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+{% endblock %}
+
+

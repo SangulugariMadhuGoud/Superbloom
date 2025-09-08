@@ -1,0 +1,109 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;900&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-dark text-[#E2E2E2] antialiased;
+  }
+}
+
+@layer components {
+  .gradient-text {
+    @apply bg-gradient-to-r from-[#A855F7] to-[#F472B6] bg-clip-text text-transparent;
+  }
+
+  .gradient-bg {
+    @apply bg-gradient-to-r from-[#A855F7] to-[#F472B6];
+  }
+
+  .glassmorphism {
+    @apply bg-opacity-70 backdrop-blur-lg border-b border-white/10;
+    background-color: rgba(10, 10, 10, 0.7);
+  }
+
+  /* Workshops page forms and file input to match templates */
+  .form-input { 
+    background-color: #1a1a1a; 
+    border: 1px solid #333; 
+    border-radius: 0.5rem; 
+    padding: 0.75rem 1rem; 
+    color: #fff; 
+    width: 100%; 
+    transition: border-color 0.3s; 
+  }
+
+  .form-input:focus { 
+    outline: none; 
+    border-color: #A855F7; 
+  }
+
+  .file-input-wrapper { 
+    border: 2px dashed #333; 
+    border-radius: 0.5rem; 
+    padding: 2rem; 
+    text-align: center; 
+    cursor: pointer; 
+    transition: border-color 0.3s; 
+    display: block;
+  }
+
+  .file-input-wrapper:hover { 
+    border-color: #A855F7; 
+  }
+
+  .file-input-wrapper input[type="file"] { 
+    opacity: 0; 
+    width: 0.1px; 
+    height: 0.1px; 
+    position: absolute; 
+  }
+}
+
+.fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Marquee animation */
+.marquee-content {
+  width: 200%; /* two identical children */
+  animation: marquee-slide 20s linear infinite;
+  will-change: transform;
+}
+
+.marquee-content > div {
+  flex: 0 0 50%; /* each half of the track */
+}
+
+.marquee-content:hover {
+  animation-play-state: paused;
+}
+
+@keyframes marquee-slide {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee-content {
+    animation: none;
+    transform: none;
+  }
+}

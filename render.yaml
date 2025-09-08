@@ -24,5 +24,5 @@ services:
         value: https://your-vercel-domain
       - key: CSRF_TRUSTED_ORIGINS
         value: https://your-vercel-domain
-    postDeployCommand: python backend/manage.py migrate
+    postDeployCommand: |
       python manage.py migrate

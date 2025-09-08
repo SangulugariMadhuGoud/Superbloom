@@ -26,9 +26,8 @@ services:
         value: https://superbloom-frontend.onrender.com
     postDeployCommand: |
       python manage.py migrate
-  - type: web
+  - type: static_site
     name: superbloom-frontend
-    env: static
     rootDir: frontend
     plan: free
     buildCommand: |

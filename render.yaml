@@ -25,11 +25,9 @@ services:
         value: https://superbloom-frontend.onrender.com
       - key: CSRF_TRUSTED_ORIGINS
         value: https://superbloom-frontend.onrender.com
-  - type: web
+  - type: static_site
     name: superbloom-frontend
-    env: static
     rootDir: frontend
-    plan: free
     buildCommand: |
       npm ci
       npm run build

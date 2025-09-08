@@ -36,7 +36,12 @@ Monorepo: Django backend + Vite React frontend.
 
 ## Deploy
 
-- Backend to PaaS (Render/Heroku/Fly):
+- Backend (Render):
+  - One-click from this repo:
+    1) In Render, select "New +" → "Blueprint" and point it to this repo.
+    2) It will read `render.yaml` and create the service.
+    3) After first deploy, set env values (see Production Settings) and redeploy.
+  - Or manual web service:
   - Install from `backend/requirements.txt`
   - Run migrations: `python manage.py migrate`
   - Start command: `gunicorn server.wsgi --bind 0.0.0.0:$PORT`

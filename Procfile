@@ -1,2 +1,1 @@
-web: gunicorn server.wsgi --chdir backend --bind 0.0.0.0:${PORT:-8000}
-
+web: gunicorn superbloom.wsgi --chdir backend --bind 0.0.0.0:${PORT:-8000}
